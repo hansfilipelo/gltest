@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0) # setting this is required
-project(example_project)            # this sets the project name
+project(gltest)            # this sets the project name
 
 file(GLOB_RECURSE sources      src/*.c src/*.h)
 file(GLOB_RECURSE resources resources/*)
@@ -23,7 +23,6 @@ find_package(glfw3 REQUIRED)
 
 target_include_directories(gltest PRIVATE ${GLFW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR})
 target_link_directories(gltest PRIVATE ${GLFW_LIBDIR})
-target_link_directories(gltest PUBLIC /System/Library/Frameworks)
 target_link_libraries(gltest
   ${GLFW_LIBRARIES}
   ${OPENGL_gl_LIBRARY}
@@ -46,8 +45,3 @@ set(CPACK_MONOLITHIC_INSTALL 1)
 
 # This must be last
 include(CPack)
-#get_cmake_property(_variableNames VARIABLES)
-#list (SORT _variableNames)
-#foreach (_variableName ${_variableNames})
-#    message(STATUS "${_variableName}=${${_variableName}}")
-#endforeach()
